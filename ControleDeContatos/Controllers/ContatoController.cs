@@ -20,6 +20,7 @@ namespace ControleDeContatos.Controllers
 
         public IActionResult Criar()
         {
+            
             return View();
         }
         public IActionResult Editar(int id)
@@ -41,15 +42,23 @@ namespace ControleDeContatos.Controllers
         [HttpPost]
         public IActionResult Criar(ContatoModel contato)
         {
-            _contatoRespositorio.Adicionar(contato);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _contatoRespositorio.Adicionar(contato);
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         [HttpPost]
         public IActionResult Alterar(ContatoModel contato)
         {
-            _contatoRespositorio.Atualizar(contato);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _contatoRespositorio.Atualizar(contato);
+                return RedirectToAction("Index");
+            }
+            return View("Editar", contato);
         }
     }
 }
