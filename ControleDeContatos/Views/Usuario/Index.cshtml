@@ -1,12 +1,12 @@
-﻿@model List<ContatoModel>;
+﻿@model List<UsuarioModel>;
 @{
-    ViewData["Title"] = "Contato";
+    ViewData["Title"] = "Usuarios";
 }
 
 
 <div class="text-center">
     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar">Adicionar Novo Contato</a>
+        <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar">Adicionar Novo Usuário</a>
     </div>
     <br />
 
@@ -50,10 +50,10 @@
                         </td>
                     </tr>
                 }
-            
+
             }
 
-            
+
         </tbody>
     </table>
 
